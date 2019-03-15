@@ -3,15 +3,18 @@ import { Field, reduxForm } from 'redux-form';
 
 class CreatePost extends React.Component {
   renderField(field) {
+    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : '' }`;
     return (
-      <div className="form-group">
+      <div className={className}>
         <label>{field.label}</label>
         <input
           className="form-control"
           type={field.type}
           { ...field.input }
         />
-        {field.meta.touched? field.meta.error : ''}
+        <div className="text-help">
+          {field.meta.touched? field.meta.error : ''}
+        </div>
       </div>
     )
   }
