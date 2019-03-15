@@ -6,7 +6,9 @@ import { fetchPosts } from '../actions';
 
 class PostsIndex extends React.Component {
   componentDidMount() {
-    this.props.fetchPosts();
+    if (!this.props.posts || _.isEmpty(this.props.posts)) {
+      this.props.fetchPosts();
+    }
   }
 
   renderPosts() {

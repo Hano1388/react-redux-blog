@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 
 class ShowPost extends Component {
   componentDidMount() {
-    const { id } = this.props.match.params;
-    this.props.fetchPost(id)
+    if (!this.props.post) {
+      const { id } = this.props.match.params;
+      this.props.fetchPost(id)
+    }
   }
   render() {
     const { post } = this.props;
@@ -15,7 +17,7 @@ class ShowPost extends Component {
       return <div>Loading...</div>
     }
     return (
-      <div className="ui container">
+      <div className="ui container ">
         <Link className="btn btn-primary" to="/">back</Link>
         <h3>{post.title}</h3>
         <p>{post.body}</p>
