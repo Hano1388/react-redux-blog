@@ -1,0 +1,30 @@
+{
+  "posts": [
+    {
+      "title": "json-server",
+      "body": "New post content",
+      "userId": 9,
+      "id": 1
+    },
+    {
+      "title": "New Post",
+      "body": "New post content",
+      "userId": 9,
+      "id": 2
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Hindreen",
+      "email": "hinsul3113@gmail.com"
+    }
+  ]
+}

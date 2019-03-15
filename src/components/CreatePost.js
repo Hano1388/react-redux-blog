@@ -1,9 +1,15 @@
 import React from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { createPost } from '../actions';
 
 class CreatePost extends React.Component {
   renderField(field) {
-    const className = `form-group ${field.meta.touched && field.meta.error ? 'has-danger' : '' }`;
+    // ES6 nested destructuring
+    const { meta: { touched, error }} = field;
+
+    const className = `form-group ${touched && error ? 'has-danger' : '' }`;
     return (
       <div className={className}>
         <label>{field.label}</label>
@@ -13,7 +19,7 @@ class CreatePost extends React.Component {
           { ...field.input }
         />
         <div className="text-help">
-          {field.meta.touched? field.meta.error : ''}
+          {touched? error : ''}
         </div>
       </div>
     )
@@ -26,6 +32,7 @@ class CreatePost extends React.Component {
     console.log(values);
 
     // TODO: Now you can make a post request to the sever with the saved values,
+    this.props.createPost(values);
   }
 
   render() {
@@ -45,6 +52,7 @@ class CreatePost extends React.Component {
           component={this.renderField}
         />
         <button className="btn btn-primary" type="submit">Create Post</button>
+        <Link className="btn btn-danger" to="/">Cancel</Link>
       </form>
     );
   }
@@ -63,7 +71,11 @@ function validate(values) {
   return errors;
 }
 
+
+
 export default reduxForm({
   validate,
   form: 'PostNewForm'
-})(CreatePost);
+})(
+  connect(null, { createPost })(CreatePost)
+);
