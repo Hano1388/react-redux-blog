@@ -11,14 +11,24 @@ class CreatePost extends React.Component {
           type={field.type}
           { ...field.input }
         />
-        {field.meta.error}
+        {field.meta.touched? field.meta.error : ''}
       </div>
     )
   }
 
+  onSubmit(values) {
+    // REMAINDER: Make sure to generate a userId between 1 - 10 and send it over with values
+    const userId = Math.ceil(Math.random(10) * 10 )
+    values = { ...values, userId}
+    console.log(values);
+
+    // TODO: Now you can make a post request to the sever with the saved values,
+  }
+
   render() {
+    const { handleSubmit } = this.props;
     return (
-      <form name="PostsNewForm">
+      <form onSubmit={handleSubmit(this.onSubmit.bind(this))}>
         <Field
           label="Title"
           name="title"
@@ -31,6 +41,7 @@ class CreatePost extends React.Component {
           type="textarea"
           component={this.renderField}
         />
+        <button className="btn btn-primary" type="submit">Create Post</button>
       </form>
     );
   }
