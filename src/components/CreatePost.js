@@ -32,7 +32,9 @@ class CreatePost extends React.Component {
     console.log(values);
 
     // TODO: Now you can make a post request to the sever with the saved values,
-    this.props.createPost(values);
+    this.props.createPost(values, () => {
+      this.props.history.push('/');
+    });
   }
 
   render() {

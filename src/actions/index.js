@@ -1,4 +1,5 @@
 import myServer from '../apis/myServer';
+import history from '../history';
 import {
   FETCH_POSTS,
   CREATE_POST
@@ -10,8 +11,8 @@ export const fetchPosts = () => async dispatch => {
   dispatch({ type: FETCH_POSTS, payload: response.data });
 }
 
-export const createPost = (values) => async dispatch => {
+export const createPost = (values, navigateBack) => async dispatch => {
   const response = await myServer.post('/posts', values);
-
+  navigateBack();
   dispatch({ type: CREATE_POST, payload: response.data });
 }
