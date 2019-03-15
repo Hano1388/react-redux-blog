@@ -11,6 +11,7 @@ class CreatePost extends React.Component {
           type={field.type}
           { ...field.input }
         />
+        {field.meta.error}
       </div>
     )
   }
@@ -35,6 +36,20 @@ class CreatePost extends React.Component {
   }
 }
 
+// Validate function will be called automatically, we just need to specify rules for each input field
+function validate(values) {
+  const errors = {};
+  if(!values.title || values.title.length < 3) {
+    errors.title = "Please enter a title that is at least 3 characters";
+  }
+  if (!values.body) {
+    errors.body = "Enter the body of your post"
+  }
+  // NOTE: if errors is empty, the form is fine to submit otherwise, redux form assumes form is invalid
+  return errors;
+}
+
 export default reduxForm({
+  validate,
   form: 'PostNewForm'
 })(CreatePost);
