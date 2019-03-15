@@ -6,8 +6,9 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import reduxThunk from 'redux-thunk';
 
 import reducers from './reducers';
-import PostsIndex from './components/PostsIndex'
-import CreatePost from './components/CreatePost'
+import PostsIndex from './components/PostsIndex';
+import CreatePost from './components/CreatePost';
+import ShowPost from './components/ShowPost';
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const store = createStore(
@@ -22,6 +23,7 @@ ReactDOM.render(
         <Switch>
           <Route path="/" component={PostsIndex} exact />
           <Route path="/posts/new" component={CreatePost} exact/>
+          <Route path="/posts/:id" component={ShowPost} exact/>
         </Switch>
       </div>
     </BrowserRouter>
