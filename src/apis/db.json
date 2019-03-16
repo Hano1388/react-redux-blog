@@ -7,78 +7,16 @@
       "id": 1
     },
     {
-      "title": "New Post",
-      "body": "New post content",
-      "userId": 9,
-      "id": 2
-    },
-    {
-      "title": "Another Post",
-      "body": "Post content",
-      "userId": 2,
-      "id": 3
-    },
-    {
       "title": "post 4",
       "body": "Post data",
       "userId": 9,
       "id": 4
     },
     {
-      "title": "new Postttt",
-      "body": "alsdjfalksjf",
-      "userId": 9,
-      "id": 5
-    },
-    {
       "title": "one more post",
       "body": "lsakdjflaksjf",
       "userId": 9,
       "id": 6
-    },
-    {
-      "title": "aaaaa",
-      "body": "dsk;fjkasfdja",
-      "userId": 5,
-      "id": 7
-    },
-    {
-      "title": "dsalkjd;lfaj",
-      "body": "alkdsja;ljf",
-      "userId": 5,
-      "id": 8
-    },
-    {
-      "title": "my stream",
-      "body": "sadfasfsaf",
-      "userId": 7,
-      "id": 9
-    },
-    {
-      "title": "anotherrrrr",
-      "body": "alsfdlaskjfdl",
-      "userId": 4,
-      "id": 10
-    },
-    {
-      "title": "testing history",
-      "body": "ka;dfjsklafs",
-      "userId": 4,
-      "id": 11
-    }
-  ],
-  "comments": [
-    {
-      "id": 1,
-      "body": "some comment",
-      "postId": 1
-    }
-  ],
-  "users": [
-    {
-      "id": 1,
-      "name": "Hindreen",
-      "email": "hinsul3113@gmail.com"
     }
   ]
 }
